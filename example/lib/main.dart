@@ -6,9 +6,7 @@ void main() {
 
   /// Initialize phone email function with
   /// Client Id
-  PhoneEmail.initializeApp(
-    clientId: 'YOUR_CLIENT_ID',
-  );
+  PhoneEmail.initializeApp(clientId: 'YOUR_CLIENT_ID');
 
   runApp(const MyApp());
 }
@@ -50,7 +48,7 @@ class PhoneEmailAuthWidget extends StatefulWidget {
 }
 
 class _PhoneEmailAuthWidgetState extends State<PhoneEmailAuthWidget> {
-  String useraccessTokenn = "";
+  String userAccessToken = "";
   String jwtUserToken = "";
   bool hasUserLogin = false;
   PhoneEmailUserModel? phoneEmailUserModel;
@@ -125,24 +123,6 @@ class _PhoneEmailAuthWidgetState extends State<PhoneEmailAuthWidget> {
 
             /// Default button
             if (!hasUserLogin) ...[
-              // Align(
-              //   alignment: Alignment.center,
-              //   child: PhoneLoginButton(
-              //     onSuccess: (String accessTokenn, String jwtToken) {
-              //       debugPrint("Access Token :: $accessTokenn");
-              //       debugPrint("Client ID :: $jwtToken");
-              //       if (accessTokenn.isNotEmpty) {
-              //         setState(() {
-              //           useraccessTokenn = accessTokenn;
-              //           jwtUserToken = jwtToken;
-              //           hasUserLogin = true;
-              //         });
-              //       }
-              //     },
-              //   ),
-              // ),
-              const SizedBox(height: 16.0),
-
               /// Button With extra rounded corner
               /// and background color
               /// and different text
@@ -150,20 +130,20 @@ class _PhoneEmailAuthWidgetState extends State<PhoneEmailAuthWidget> {
                 alignment: Alignment.center,
                 child: PhoneLoginButton(
                   borderRadius: 15,
-                  buttonColor: Colors.amber,
+                  buttonColor: Colors.green,
                   label: 'Sign in with Number',
-                  onSuccess: (String accessTokenn, String jwtToken) {
-                    // debugPrint("Access Token :: $accessTokenn");
+                  onSuccess: (String accessToken, String jwtToken) {
+                    // debugPrint("Access Token :: $accessToken");
                     // debugPrint("Client ID :: $jwtToken");
-                    if (accessTokenn.isNotEmpty) {
+                    if (accessToken.isNotEmpty) {
                       setState(() {
-                        useraccessTokenn = accessTokenn;
+                        userAccessToken = accessToken;
                         jwtUserToken = jwtToken;
                         hasUserLogin = true;
                       });
 
                       PhoneEmail.getUserInfo(
-                        accessToken: useraccessTokenn,
+                        accessToken: userAccessToken,
                         clientId: phoneEmail.clientId,
                         onSuccess: (userData) {
                           setState(() {
@@ -184,50 +164,13 @@ class _PhoneEmailAuthWidgetState extends State<PhoneEmailAuthWidget> {
               ),
             ],
             const SizedBox(height: 16.0),
-
-            // if (hasUserLogin) ...[
-            //   /// Get login user Data
-            //   Align(
-            //     alignment: Alignment.center,
-            //     child: ElevatedButton(
-            //       onPressed: () {
-            //         PhoneEmail.getUserInfo(
-            //           accessToken: useraccessTokenn,
-            //           clientId: phoneEmail.clientId,
-            //           onSuccess: (userData) {
-            //             setState(() {
-            //               phoneEmailUserModel = userData;
-            //               var countryCode = phoneEmailUserModel?.countryCode;
-            //               var phoneNumber = phoneEmailUserModel?.phoneNumber;
-            //
-            //             });
-            //           },
-            //         );
-            //       },
-            //       child: const Text("Get User Data"),
-            //     ),
-            //   ),
-            //   const SizedBox(height: 16.0),
-
-              /// Get login user Data
-              // Align(
-              //   alignment: Alignment.center,
-              //   child: ElevatedButton(
-              //     onPressed: () {
-              //       getTotalEmailCount();
-              //     },
-              //     child: const Text("Get Email count"),
-              //   ),
-              // ),
-              // const SizedBox(height: 16.0),
-
               /// Logout
               Align(
                 alignment: Alignment.center,
                 child: ElevatedButton(
                   onPressed: () {
                     hasUserLogin = false;
-                    useraccessTokenn = "";
+                    userAccessToken = "";
                     jwtUserToken = "";
                     phoneEmailUserModel = null;
                     emailCount = '0';
