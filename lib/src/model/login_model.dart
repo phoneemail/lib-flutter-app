@@ -13,10 +13,9 @@ class LoginModel {
 
   factory LoginModel.fromJson(Map<String, dynamic> json) {
     return LoginModel(
-      accessTokenn: json['access_token'],
-      clientId: json['client_id'],
-      isVerify: json['is_verify'],
-      jwtToken: json['jwt']
-    );
+        accessTokenn: json['access_token'],
+        clientId: json['client_id'],
+        isVerify: json['is_verify'],
+        jwtToken: json['jwt']);
   }
 }

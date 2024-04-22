@@ -17,11 +17,12 @@ class PhoneEmail {
 
   static final PhoneEmail _instance = PhoneEmail();
 
-  static initializeApp({
-    // required String apiKey,
-    required String clientId
-    // String? redirectUrl,
-  }) async {
+  static initializeApp(
+      {
+      // required String apiKey,
+      required String clientId
+      // String? redirectUrl,
+      }) async {
     // _instance._apiKey = apiKey;
     _instance._clientId = clientId;
     // _instance._redirectUrl = redirectUrl;

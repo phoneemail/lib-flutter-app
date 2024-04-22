@@ -60,9 +60,9 @@ class _EmailAlertButtonState extends State<EmailAlertButton> {
       } else {
         _emailCount =
             sharedPreference?.getString(AppConstant.totalEmailCount) ?? '0';
-        print("Email Count: "+_emailCount);
+        print("Email Count: " + _emailCount);
       }
-    }else{
+    } else {
       getEmailCount();
     }
   }
