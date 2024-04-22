@@ -8,7 +8,7 @@ Install
 
 ```
     dependencies:
-    phone_email_auth: ^0.0.1
+    phone_email_auth: ^0.0.2
 ```
 
 Import
@@ -20,7 +20,7 @@ Import
 Initialize phone email plugin
 
 ```
-    PhoneEmail.initializeApp(clientId: 'YOUR_CLIENT_ID',);
+    PhoneEmail.initializeApp(clientId: 'YOUR_CLIENT_ID');
 ```
 
 ## Note:
