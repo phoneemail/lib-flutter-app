@@ -7,13 +7,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class PhoneEmail {
   /// API key
-  late String _apiKey;
+  // late String _apiKey;
 
   /// Client ID
   late String _clientId;
 
   /// Redirect URL
-  String? _redirectUrl;
+  // String? _redirectUrl;
 
   static final PhoneEmail _instance = PhoneEmail();
 
@@ -31,32 +31,32 @@ class PhoneEmail {
   }
 
   /// Get api key from initialize function
-  String get apiKey => _instance._apiKey;
+  // String get apiKey => _instance._apiKey;
 
   /// Get client Id from initialize function
   String get clientId => _instance._clientId;
 
   /// Get redirect url from initialize function
-  String? get redirectUrl => _instance._redirectUrl;
+  // String? get redirectUrl => _instance._redirectUrl;
 
   /*
   * Check JWT token is valid or not
   * And also check is expired or not
   */
-  static bool _isValidJwtToken(String jwtToken) {
-    try {
-      final phoneEmail = PhoneEmail();
-      final jwt = JWT.verify(jwtToken, SecretKey(phoneEmail.apiKey));
-      print(jwt.payload);
-      return jwt.payload != null;
-    } on JWTExpiredException {
-      print('jwt expired');
-      return false;
-    } on JWTException catch (ex) {
-      print(ex.message);
-      return false;
-    }
-  }
+  // static bool _isValidJwtToken(String jwtToken) {
+  //   try {
+  //     final phoneEmail = PhoneEmail();
+  //     final jwt = JWT.verify(jwtToken, SecretKey(phoneEmail.apiKey));
+  //     print(jwt.payload);
+  //     return jwt.payload != null;
+  //   } on JWTExpiredException {
+  //     print('jwt expired');
+  //     return false;
+  //   } on JWTException catch (ex) {
+  //     print(ex.message);
+  //     return false;
+  //   }
+  // }
 
   /*
   * Get email count using authorized number with JWT token
@@ -79,7 +79,7 @@ class PhoneEmail {
     required Function(PhoneEmailUserModel) onSuccess,
   }) async {
     await PhoneEmail._getUserInfoApi(
-      accessTokenn: accessToken,
+      accessToken: accessToken,
       clientId: clientId,
     ).then((value) {
       final userData = PhoneEmailUserModel.fromJson(value);
@@ -90,7 +90,7 @@ class PhoneEmail {
   /// Network Calls
   /// Get user data using clientId and Access Token
   static Future<Map<String, dynamic>> _getUserInfoApi({
-    required String accessTokenn,
+    required String accessToken,
     required String clientId,
   }) async {
     try {
@@ -98,7 +98,7 @@ class PhoneEmail {
         Uri.parse(AppConstant.userUrl),
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         body: {
-          '${AppConstant.accessTokenn}': accessTokenn,
+          '${AppConstant.accessTokenn}': accessToken,
           '${AppConstant.clientId}': clientId,
         },
       );
@@ -116,9 +116,9 @@ class PhoneEmail {
 
   static Future<String> _getEmailCountApi(String jwtToken) async {
     try {
-      if (!_isValidJwtToken(jwtToken)) {
-        return "Invalid Token";
-      }
+      // if (!_isValidJwtToken(jwtToken)) {
+      //   return "Invalid Token";
+      // }
       final response = await http.post(
         Uri.parse(AppConstant.emailUrl),
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},

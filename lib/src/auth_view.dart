@@ -33,7 +33,7 @@ class _AuthScreenState extends State<AuthScreen> {
     /// Build authentication url with registered details
     authenticationUrl = "${AppConstant.authUrl}?" +
         "${AppConstant.clientId}=${_phoneEmail.clientId}" +
-        "&${AppConstant.redirectUrl}=${_phoneEmail.redirectUrl ?? ""}" +
+        // "&${AppConstant.redirectUrl}=${_phoneEmail.redirectUrl ?? ""}" +
         "&${AppConstant.authType}=5";
 
     print('Authentication URL: $authenticationUrl');
@@ -64,6 +64,7 @@ class _AuthScreenState extends State<AuthScreen> {
             },
           ),
           backgroundColor: Color.fromARGB(255, 4, 201, 135),
+            // backgroundColor: Color.fr
         ),
         body: InAppWebView(
           key: webViewKey,
