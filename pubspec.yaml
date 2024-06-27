@@ -1,5 +1,5 @@
 name: phone_email_auth
-description: "Ensure the security and authenticity of your app users with our Phone Verification Plugin for Flutter. This easy-to-integrate plugin allows you to verify user phone numbers effortlessly through SMS. Enhance user experience and safeguard your app with reliable and efficient phone verification."
+description: "Flutter plugin for authenticating phone number. This plugin send OTP to mobile numbers and verify it and return verified  mobile number to user."
 version: 0.0.3
 homepage: "https://www.phone.email/"
 repository: https://github.com/phoneemail/lib-flutter-app
