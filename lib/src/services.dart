@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';
 import 'package:http/http.dart' as http;
 import 'package:phone_email_auth/phone_email_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
