@@ -96,6 +96,14 @@ class _PhoneEmailAuthWidgetState extends State<PhoneEmailAuthWidget> {
                 ),
                 const SizedBox(height: 16.0),
                 Text(
+                  "User name : ${phoneEmailUserModel?.firstName} ${phoneEmailUserModel?.lastName}",
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: Colors.black,
+                  ),
+                ),
+                const SizedBox(height: 16.0),
+                Text(
                   "Phone Number : ${phoneEmailUserModel?.countryCode} ${phoneEmailUserModel?.phoneNumber}",
                   style: const TextStyle(
                     fontSize: 16,
@@ -150,8 +158,12 @@ class _PhoneEmailAuthWidgetState extends State<PhoneEmailAuthWidget> {
                             phoneEmailUserModel = userData;
                             var countryCode = phoneEmailUserModel?.countryCode;
                             var phoneNumber = phoneEmailUserModel?.phoneNumber;
+                            var firstName = phoneEmailUserModel?.firstName;
+                            var lastName = phoneEmailUserModel?.lastName;
                             debugPrint("countryCode :: $countryCode");
                             debugPrint("phoneNumber :: $phoneNumber");
+                            debugPrint("firstName :: $firstName");
+                            debugPrint("lastName :: $lastName");
                             getTotalEmailCount();
 
                           });

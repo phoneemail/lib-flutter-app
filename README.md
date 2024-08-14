@@ -8,7 +8,7 @@ Install
 
 ```
     dependencies:
-    phone_email_auth: ^0.0.3
+    phone_email_auth: ^0.0.4
 ```
 
 Import
@@ -51,22 +51,24 @@ The PhoneLoginButton will return the `accessToken` and `jwtToken`, which are nec
 
 # Get Verified phone number:
 
-Once you've obtained the `accessToken`, get verified phone number by calling the `getUserInfo()` function. Use the following code snippet to retrieve the verified phone number.
+Once you've obtained the `accessToken`, get verified phone number by calling the `getUserInfo()` function. Use the following code snippet to retrieve the verified phone number and user details.
 
 ```dart
         PhoneEmail.getUserInfo(
-        accessToken: userAccessToken,
-        clientId: phoneEmail.clientId,
-        onSuccess: (userData) {
-            setState(() {
-            phoneEmailUserModel = userData;
-            var countryCode = phoneEmailUserModel?.countryCode;
-            var phoneNumber = phoneEmailUserModel?.phoneNumber;
-
-            // Use this verified phone number to register user and create your session
-
-            });
-        },
+            accessToken: userAccessToken,
+            clientId: phoneEmail.clientId,
+            onSuccess: (userData) {
+                setState(() {
+                phoneEmailUserModel = userData;
+                var countryCode = phoneEmailUserModel?.countryCode;
+                var phoneNumber = phoneEmailUserModel?.phoneNumber;
+                var firstName = phoneEmailUserModel?.firstName;
+                var lastName = phoneEmailUserModel?.lastName;
+    
+                // Use this verified phone number to register user and create your session
+    
+                });
+            },
         );
 ```
 
