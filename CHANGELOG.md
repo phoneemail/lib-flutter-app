@@ -1,3 +1,6 @@
+## 0.0.5
+* Device Id issue fixed.
+
 ## 0.0.4
 * We now return both first and last name in addition to the verified phone number.
 

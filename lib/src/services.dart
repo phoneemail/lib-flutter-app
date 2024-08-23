@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:phone_email_auth/phone_email_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_udid/flutter_udid.dart';
 
 class PhoneEmail {
   /// API key
@@ -133,5 +134,10 @@ class PhoneEmail {
       print('Error: $e');
       throw Exception('Failed to load email count');
     }
+  }
+
+  static Future<String?> getUDID() async {
+    String udid = await FlutterUdid.udid;
+    return udid;
   }
 }

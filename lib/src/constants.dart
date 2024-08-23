@@ -13,6 +13,7 @@ class AppConstant {
   static const sendTokenToApp = 'sendTokenToApp';
   static const lastFetchEmailCountTime = 'lastFetchEmailCountTime';
   static const totalEmailCount = 'totalEmailCount';
+  static const device = 'device';
 
   /// For app usage
   static const authViewTitle = 'Sign in with phone';

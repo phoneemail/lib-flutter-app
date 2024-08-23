@@ -30,9 +30,13 @@ class _AuthScreenState extends State<AuthScreen> {
       InAppWebViewController controller) async {
     final _phoneEmail = PhoneEmail();
 
+    /// Get Unique device token
+    deviceId = await PhoneEmail.getUDID();
+
     /// Build authentication url with registered details
     authenticationUrl = "${AppConstant.authUrl}?" +
         "${AppConstant.clientId}=${_phoneEmail.clientId}" +
+        "&${AppConstant.device}=${deviceId ?? ""}" +
         // "&${AppConstant.redirectUrl}=${_phoneEmail.redirectUrl ?? ""}" +
         "&${AppConstant.authType}=5";
 
@@ -64,7 +68,7 @@ class _AuthScreenState extends State<AuthScreen> {
             },
           ),
           backgroundColor: Color.fromARGB(255, 4, 201, 135),
-            // backgroundColor: Color.fr
+          // backgroundColor: Color.fr
         ),
         body: InAppWebView(
           key: webViewKey,
