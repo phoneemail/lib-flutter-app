@@ -1,6 +1,6 @@
 name: phone_email_auth
 description: "Flutter plugin for authenticating phone number. This plugin send OTP to mobile numbers and verify it and return verified  mobile number and user's first and last name."
-version: 0.0.5
+version: 0.0.6
 homepage: "https://www.phone.email/"
 repository: https://github.com/phoneemail/lib-flutter-app
 
