@@ -22,6 +22,7 @@ class PhoneEmailUserModel {
         phoneNumber: json['phone_no'],
         phEmailJwt: json['ph_email_jwt'],
         firstName : json['first_name'],
-        lastName : json['last_name']);
+        lastName : json['last_name']
+    );
   }
 }

@@ -30,8 +30,14 @@ class _AuthScreenState extends State<AuthScreen> {
       InAppWebViewController controller) async {
     final _phoneEmail = PhoneEmail();
 
-    /// Get Unique device token
-    deviceId = await PhoneEmail.getUDID();
+    if(_phoneEmail.deviceId!.isNotEmpty){
+      deviceId = _phoneEmail.deviceId;
+      print('deviceId pref: $deviceId');
+    }else{
+      /// Get Unique device token
+      deviceId = await PhoneEmail.getUDID();
+      print('deviceId API: $deviceId');
+    }
 
     /// Build authentication url with registered details
     authenticationUrl = "${AppConstant.authUrl}?" +

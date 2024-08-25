@@ -1,3 +1,6 @@
+## 0.0.6
+* Minor issue fixed related to device Id.
+
 ## 0.0.5
 * Device Id issue fixed.
 

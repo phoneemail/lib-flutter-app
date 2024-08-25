@@ -8,7 +8,7 @@ Install
 
 ```
     dependencies:
-    phone_email_auth: ^0.0.5
+    phone_email_auth: ^0.0.6
 ```
 
 Import

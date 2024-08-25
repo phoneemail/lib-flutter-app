@@ -15,6 +15,8 @@ class PhoneEmail {
   /// Redirect URL
   // String? _redirectUrl;
 
+  String? _deviceId;
+
   static final PhoneEmail _instance = PhoneEmail();
 
   static initializeApp(
@@ -27,6 +29,8 @@ class PhoneEmail {
     _instance._clientId = clientId;
     // _instance._redirectUrl = redirectUrl;
 
+    _instance._deviceId = await getUDID();
+
     sharedPreference = await SharedPreferences.getInstance();
   }
 
@@ -38,6 +42,9 @@ class PhoneEmail {
 
   /// Get redirect url from initialize function
   // String? get redirectUrl => _instance._redirectUrl;
+
+  /// Get device id from initialize function
+  String? get deviceId => _instance._deviceId;
 
   /*
   * Check JWT token is valid or not
