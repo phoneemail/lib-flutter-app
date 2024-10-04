@@ -113,11 +113,11 @@ class PhoneEmail {
         /// Return user details
         return jsonDecode(response.body);
       } else {
-        throw Exception('Failed to load email count');
+        throw Exception('Failed to fetch User Data');
       }
     } catch (e) {
       print('Error: $e');
-      throw Exception('Failed to load email count');
+      throw Exception('Failed to fetch User Data');
     }
   }
 
